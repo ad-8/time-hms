@@ -9,11 +9,15 @@ pub struct TimeHMS {
 impl TimeHMS {
     /// Converts a duration from a representation in seconds
     /// into a representation in hours, minutes and seconds.
-    pub fn new(seconds: i32) -> TimeHMS {
-        // TODO return Result (err if seconds < 0)
+    pub fn new(seconds: i32) -> Result<TimeHMS, String> {
+        if seconds < 0 {
+            return Err("seconds must be >= 0".to_string());
+        }
+
         let (m, s) = divmod(seconds, 60);
         let (h, m) = divmod(m, 60);
-        TimeHMS { h, m, s }
+
+        Ok(TimeHMS { h, m, s })
     }
 }
 
