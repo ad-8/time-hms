@@ -1,3 +1,5 @@
+use std::fmt;
+
 /// TimeHMS represents a duration in hours, minutes and seconds.
 ///
 /// ```
@@ -39,6 +41,12 @@ impl TimeHMS {
     }
     pub fn s(&self) -> i32 {
         self.s
+    }
+}
+
+impl fmt::Display for TimeHMS {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        write!(f, "{:0>2}:{:0>2}:{:0>2}", self.h, self.m, self.s)
     }
 }
 
