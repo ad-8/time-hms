@@ -34,7 +34,7 @@ mod tests {
 
     #[test]
     fn t0() {
-        let t = TimeHMS::new(0);
+        let t = TimeHMS::new(0).unwrap();
         assert_eq!(t.h, 0);
         assert_eq!(t.m, 0);
         assert_eq!(t.s, 0);
@@ -42,7 +42,7 @@ mod tests {
 
     #[test]
     fn t123() {
-        let t = TimeHMS::new(3723);
+        let t = TimeHMS::new(3723).unwrap();
         assert_eq!(t.h, 1);
         assert_eq!(t.m, 2);
         assert_eq!(t.s, 3);
@@ -50,7 +50,7 @@ mod tests {
 
     #[test]
     fn t12345() {
-        let t = TimeHMS::new(12345);
+        let t = TimeHMS::new(12345).unwrap();
         assert_eq!(t.h, 3);
         assert_eq!(t.m, 25);
         assert_eq!(t.s, 45);
@@ -58,7 +58,7 @@ mod tests {
 
     #[test]
     fn t123456789() {
-        let t = TimeHMS::new(123456789);
+        let t = TimeHMS::new(123456789).unwrap();
         assert_eq!(t.h, 34293);
         assert_eq!(t.m, 33);
         assert_eq!(t.s, 9);
