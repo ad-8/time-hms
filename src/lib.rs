@@ -33,6 +33,12 @@ mod tests {
     use crate::TimeHMS;
 
     #[test]
+    fn invalid_arg() {
+        let t = TimeHMS::new(-1);
+        assert!(t.is_err())
+    }
+
+    #[test]
     fn t0() {
         let t = TimeHMS::new(0).unwrap();
         assert_eq!(t.h, 0);
