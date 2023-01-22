@@ -29,3 +29,40 @@ fn divmod(x: i32, y: i32) -> (i32, i32) {
     let remainder = x % y;
     (quotient, remainder)
 }
+
+#[cfg(test)]
+mod tests {
+    use crate::TimeHMS;
+
+    #[test]
+    fn t0() {
+        let t = TimeHMS::new(0);
+        assert_eq!(t.h, 0);
+        assert_eq!(t.m, 0);
+        assert_eq!(t.s, 0);
+    }
+
+    #[test]
+    fn t123() {
+        let t = TimeHMS::new(3723);
+        assert_eq!(t.h, 1);
+        assert_eq!(t.m, 2);
+        assert_eq!(t.s, 3);
+    }
+
+    #[test]
+    fn t12345() {
+        let t = TimeHMS::new(12345);
+        assert_eq!(t.h, 3);
+        assert_eq!(t.m, 25);
+        assert_eq!(t.s, 45);
+    }
+
+    #[test]
+    fn t123456789() {
+        let t = TimeHMS::new(123456789);
+        assert_eq!(t.h, 34293);
+        assert_eq!(t.m, 33);
+        assert_eq!(t.s, 9);
+    }
+}
