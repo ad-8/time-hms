@@ -1,4 +1,16 @@
-/// SimpleTime represents a duration in hours, minutes and seconds.
+/// TimeHMS represents a duration in hours, minutes and seconds.
+///
+/// ```
+///
+/// use time_hms::TimeHMS;
+///
+/// let t = TimeHMS::new(3723).unwrap();
+///
+/// // 3723 seconds equal 1 hour, 2 minutes and 3 seconds
+/// assert_eq!(t.h(), 1);
+/// assert_eq!(t.m(), 2);
+/// assert_eq!(t.s(), 3);
+/// ```
 #[derive(Debug)]
 pub struct TimeHMS {
     h: i32,
@@ -18,6 +30,15 @@ impl TimeHMS {
         let (h, m) = divmod(m, 60);
 
         Ok(TimeHMS { h, m, s })
+    }
+    pub fn h(&self) -> i32 {
+        self.h
+    }
+    pub fn m(&self) -> i32 {
+        self.m
+    }
+    pub fn s(&self) -> i32 {
+        self.s
     }
 }
 
