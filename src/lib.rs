@@ -9,9 +9,9 @@ pub struct TimeHMS {
 impl TimeHMS {
     /// Converts a duration from a representation in seconds
     /// into a representation in hours, minutes and seconds.
-    pub fn new(seconds: i32) -> Result<TimeHMS, String> {
+    pub fn new(seconds: i32) -> Result<TimeHMS, &'static str> {
         if seconds < 0 {
-            return Err("seconds must be >= 0".to_string());
+            return Err("seconds must be >= 0");
         }
 
         let (m, s) = divmod(seconds, 60);
@@ -35,7 +35,7 @@ mod tests {
     #[test]
     fn invalid_arg() {
         let t = TimeHMS::new(-1);
-        assert!(t.is_err())
+        assert!(t.is_err());
     }
 
     #[test]
