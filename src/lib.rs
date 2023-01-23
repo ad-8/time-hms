@@ -15,15 +15,15 @@ use std::fmt;
 /// ```
 #[derive(Debug)]
 pub struct TimeHMS {
-    h: i32,
-    m: i32,
-    s: i32,
+    h: i64,
+    m: i64,
+    s: i64,
 }
 
 impl TimeHMS {
     /// Converts a duration from a representation in seconds
     /// into a representation in hours, minutes and seconds.
-    pub fn new(seconds: i32) -> Result<TimeHMS, &'static str> {
+    pub fn new(seconds: i64) -> Result<TimeHMS, &'static str> {
         if seconds < 0 {
             return Err("seconds must be >= 0");
         }
@@ -33,13 +33,13 @@ impl TimeHMS {
 
         Ok(TimeHMS { h, m, s })
     }
-    pub fn h(&self) -> i32 {
+    pub fn h(&self) -> i64 {
         self.h
     }
-    pub fn m(&self) -> i32 {
+    pub fn m(&self) -> i64 {
         self.m
     }
-    pub fn s(&self) -> i32 {
+    pub fn s(&self) -> i64 {
         self.s
     }
 }
@@ -51,7 +51,7 @@ impl fmt::Display for TimeHMS {
 }
 
 /// Takes two numbers as arguments and returns their quotient and remainder when using integer division.
-fn divmod(x: i32, y: i32) -> (i32, i32) {
+fn divmod(x: i64, y: i64) -> (i64, i64) {
     let quotient = x / y;
     let remainder = x % y;
     (quotient, remainder)
