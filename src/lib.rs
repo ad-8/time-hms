@@ -2,7 +2,6 @@ use std::fmt;
 
 /// TimeHMS parses a duration in seconds to a more human-readable representation
 /// in hours, minutes and seconds.
-///
 /// ```
 /// use time_hms::TimeHMS;
 ///
