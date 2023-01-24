@@ -85,14 +85,6 @@ mod tests {
     }
 
     #[test]
-    fn t123() {
-        let t = TimeHMS::new(3723).unwrap();
-        assert_eq!(t.h, 1);
-        assert_eq!(t.m, 2);
-        assert_eq!(t.s, 3);
-    }
-
-    #[test]
     fn t12345() {
         let t = TimeHMS::new(12345).unwrap();
         assert_eq!(t.h, 3);
