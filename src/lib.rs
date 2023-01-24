@@ -13,7 +13,7 @@ use std::fmt;
 /// assert_eq!(t.m(), 2);
 /// assert_eq!(t.s(), 3);
 /// ```
-#[derive(Debug)]
+#[derive(Debug, PartialEq)]
 pub struct TimeHMS {
     h: i64,
     m: i64,
@@ -97,5 +97,19 @@ mod tests {
         assert_eq!(t.h, 34293);
         assert_eq!(t.m, 33);
         assert_eq!(t.s, 9);
+    }
+
+    #[test]
+    fn two_equal_instances() {
+        let t1 = TimeHMS::new(3661).unwrap();
+        let t2 = TimeHMS::new(3661).unwrap();
+        assert_eq!(t1, t2);
+    }
+
+    #[test]
+    fn two_unequal_instances() {
+        let t1 = TimeHMS::new(3661).unwrap();
+        let t2 = TimeHMS::new(3662).unwrap();
+        assert_ne!(t1, t2);
     }
 }
