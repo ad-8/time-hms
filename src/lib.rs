@@ -1,9 +1,9 @@
 use std::fmt;
 
-/// TimeHMS represents a duration in hours, minutes and seconds.
+/// TimeHMS parses a duration in seconds to a more human-readable representation
+/// in hours, minutes and seconds.
 ///
 /// ```
-///
 /// use time_hms::TimeHMS;
 ///
 /// let t = TimeHMS::new(3723).unwrap();
@@ -12,7 +12,10 @@ use std::fmt;
 /// assert_eq!(t.h(), 1);
 /// assert_eq!(t.m(), 2);
 /// assert_eq!(t.s(), 3);
-/// ```
+///
+/// // A default way to format! / println! is included
+/// assert_eq!(format!("{}", t), "01:02:03")
+///```
 #[derive(Debug, PartialEq)]
 pub struct TimeHMS {
     h: i64,
@@ -33,12 +36,18 @@ impl TimeHMS {
 
         Ok(TimeHMS { h, m, s })
     }
+
+    /// Returns the hour part of the duration.
     pub fn h(&self) -> i64 {
         self.h
     }
+
+    /// Returns the minute part of the duration.
     pub fn m(&self) -> i64 {
         self.m
     }
+
+    /// Returns the seconds part of the duration.
     pub fn s(&self) -> i64 {
         self.s
     }
