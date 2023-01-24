@@ -2,7 +2,11 @@
 name = "time-hms"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+license = "MIT"
+description = "Parse a duration in seconds to a more human-readable representation in hours, minutes and seconds"
+repository = "https://github.com/ad-8/time-hms"
+readme = "README.md"
+keywords = ["time", "hms", "hours", "minutes", "seconds"]
+categories = ["date-and-time"]
 
 [dependencies]
