@@ -67,7 +67,28 @@ fn divmod(x: i64, y: i64) -> (i64, i64) {
 
 #[cfg(test)]
 mod tests {
-    use crate::TimeHMS;
+    use super::*;
+
+    #[test]
+    fn test_divmod() {
+        let test_cases = vec![
+            (5, 2, (2, 1)),
+            (10, 3, (3, 1)),
+            (13, 5, (2, 3)),
+            (0, 5, (0, 0)),
+            (-8, 3, (-2, -2)),
+            (8, -3, (-2, 2)),
+            (-8, -3, (2, -2)),
+            (i64::MIN, 1, (i64::MIN, 0)),
+            (i64::MAX, 1, (i64::MAX, 0)),
+            (i64::MIN, i64::MIN, (1, 0)),
+            (i64::MAX, i64::MAX, (1, 0)),
+        ];
+
+        for (x, y, expected) in test_cases {
+            assert_eq!(divmod(x, y), expected,);
+        }
+    }
 
     #[test]
     fn invalid_arg() {
