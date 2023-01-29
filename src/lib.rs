@@ -86,7 +86,7 @@ mod tests {
         ];
 
         for (x, y, expected) in test_cases {
-            assert_eq!(divmod(x, y), expected,);
+            assert_eq!(divmod(x, y), expected);
         }
     }
 
