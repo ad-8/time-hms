@@ -76,38 +76,30 @@ mod tests {
     }
 
     #[test]
-    fn t0() {
-        let t = TimeHMS::new(0).unwrap();
-        assert_eq!(t.h, 0);
-        assert_eq!(t.m, 0);
-        assert_eq!(t.s, 0);
+    fn valid_args() {
+        let test_cases = vec![
+            (0, (0, 0, 0)),
+            (12345, (3, 25, 45)),
+            (123456789, (34293, 33, 9)),
+        ];
+
+        for (input, expected) in test_cases {
+            let t = TimeHMS::new(input).unwrap();
+            assert_eq!(t.h, expected.0);
+            assert_eq!(t.m, expected.1);
+            assert_eq!(t.s, expected.2);
+        }
     }
 
     #[test]
-    fn t12345() {
-        let t = TimeHMS::new(12345).unwrap();
-        assert_eq!(t.h, 3);
-        assert_eq!(t.m, 25);
-        assert_eq!(t.s, 45);
-    }
-
-    #[test]
-    fn t123456789() {
-        let t = TimeHMS::new(123456789).unwrap();
-        assert_eq!(t.h, 34293);
-        assert_eq!(t.m, 33);
-        assert_eq!(t.s, 9);
-    }
-
-    #[test]
-    fn two_equal_instances() {
+    fn equal() {
         let t1 = TimeHMS::new(3661).unwrap();
         let t2 = TimeHMS::new(3661).unwrap();
         assert_eq!(t1, t2);
     }
 
     #[test]
-    fn two_unequal_instances() {
+    fn not_equal() {
         let t1 = TimeHMS::new(3661).unwrap();
         let t2 = TimeHMS::new(3662).unwrap();
         assert_ne!(t1, t2);

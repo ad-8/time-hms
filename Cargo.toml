@@ -1,6 +1,6 @@
 [package]
 name = "time-hms"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 license = "MIT"
 description = "Parse a duration in seconds to a more human-readable representation in hours, minutes and seconds"
