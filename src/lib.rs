@@ -97,6 +97,13 @@ mod tests {
     }
 
     #[test]
+    fn test_err_msg() {
+        let t = TimeHMS::new(-1);
+        let err = t.unwrap_err();
+        assert_eq!(err.to_string(), "seconds must be >= 0".to_string());
+    }
+
+    #[test]
     fn valid_args() {
         let test_cases = vec![
             (0, (0, 0, 0)),
