@@ -6,7 +6,7 @@ license = "MIT"
 description = "Convert a duration in seconds to a representation in hours, minutes and seconds"
 repository = "https://github.com/ad-8/time-hms"
 readme = "README.md"
-keywords = ["time", "hms", "hours", "minutes", "seconds"]
+keywords = ["time", "hms", "h:m:s","hours", "minutes", "seconds"]
 categories = ["date-and-time"]
 
 [dependencies]
