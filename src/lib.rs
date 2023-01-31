@@ -113,9 +113,10 @@ mod tests {
 
         for (input, expected) in test_cases {
             let t = TimeHMS::new(input).unwrap();
-            assert_eq!(t.h, expected.0);
-            assert_eq!(t.m, expected.1);
-            assert_eq!(t.s, expected.2);
+            let (h, m, s) = expected;
+            assert_eq!(t.h, h);
+            assert_eq!(t.m, m);
+            assert_eq!(t.s, s);
         }
     }
 
