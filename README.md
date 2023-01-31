@@ -8,7 +8,7 @@ human-readable representation in hours, minutes and seconds.
 ```rust
 use time_hms::TimeHMS;
 
-let t = TimeHMS::new(3723).unwrap();
+let t = TimeHMS::new(3723);
 
 // 3723 seconds equal 1 hour, 2 minutes and 3 seconds
 assert_eq!(t.h(), 1);
