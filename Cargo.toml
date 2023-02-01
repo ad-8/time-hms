@@ -1,6 +1,6 @@
 [package]
 name = "time-hms"
-version = "0.2.1"
+version = "0.3.0"
 edition = "2021"
 license = "MIT"
 description = "Convert a duration in seconds to a representation in hours, minutes and seconds"

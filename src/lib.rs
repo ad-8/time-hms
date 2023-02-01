@@ -1,11 +1,11 @@
 use std::fmt;
 
-/// TimeHMS parses a duration in seconds to a more human-readable representation
+/// TimeHms parses a duration in seconds to a more human-readable representation
 /// in hours, minutes and seconds.
 /// ```
-/// use time_hms::TimeHMS;
+/// use time_hms::TimeHms;
 ///
-/// let t = TimeHMS::new(3723);
+/// let t = TimeHms::new(3723);
 ///
 /// // 3723 seconds equal 1 hour, 2 minutes and 3 seconds
 /// assert_eq!(t.h(), 1);
@@ -16,20 +16,20 @@ use std::fmt;
 /// assert_eq!(format!("{}", t), "01:02:03")
 ///```
 #[derive(Debug, PartialEq)]
-pub struct TimeHMS {
+pub struct TimeHms {
     h: u64,
     m: u64,
     s: u64,
 }
 
-impl TimeHMS {
+impl TimeHms {
     /// Converts a duration from a representation in seconds
     /// into a representation in hours, minutes and seconds.
-    pub fn new(seconds: u64) -> TimeHMS {
+    pub fn new(seconds: u64) -> TimeHms {
         let (m, s) = divmod(seconds, 60);
         let (h, m) = divmod(m, 60);
 
-        TimeHMS { h, m, s }
+        TimeHms { h, m, s }
     }
 
     /// Returns the hour part of the duration.
@@ -48,7 +48,7 @@ impl TimeHMS {
     }
 }
 
-impl fmt::Display for TimeHMS {
+impl fmt::Display for TimeHms {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "{:0>2}:{:0>2}:{:0>2}", self.h, self.m, self.s)
     }
@@ -90,7 +90,7 @@ mod tests {
         ];
 
         for (input, expected) in test_cases {
-            let t = TimeHMS::new(input);
+            let t = TimeHms::new(input);
             let (h, m, s) = expected;
             assert_eq!(t.h, h);
             assert_eq!(t.m, m);
@@ -100,15 +100,15 @@ mod tests {
 
     #[test]
     fn equal() {
-        let t1 = TimeHMS::new(3661);
-        let t2 = TimeHMS::new(3661);
+        let t1 = TimeHms::new(3661);
+        let t2 = TimeHms::new(3661);
         assert_eq!(t1, t2);
     }
 
     #[test]
     fn not_equal() {
-        let t1 = TimeHMS::new(3661);
-        let t2 = TimeHMS::new(3662);
+        let t1 = TimeHms::new(3661);
+        let t2 = TimeHms::new(3662);
         assert_ne!(t1, t2);
     }
 }
