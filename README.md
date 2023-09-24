@@ -3,6 +3,10 @@
 Easily parse a duration represented in seconds to a more 
 human-readable representation in hours, minutes and seconds.
 
+# Why?
+It's a simple functionality that I needed across different applications.
+I also wanted to learn how to publish a library on [crates.io](https://crates.io/).
+
 # Usage
 
 ```rust

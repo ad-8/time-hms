@@ -82,7 +82,7 @@ mod tests {
     }
 
     #[test]
-    fn valid_args() {
+    fn timehms_new() {
         let test_cases = vec![
             (0, (0, 0, 0)),
             (12345, (3, 25, 45)),
@@ -92,9 +92,9 @@ mod tests {
         for (input, expected) in test_cases {
             let t = TimeHms::new(input);
             let (h, m, s) = expected;
-            assert_eq!(t.h, h);
-            assert_eq!(t.m, m);
-            assert_eq!(t.s, s);
+            assert_eq!(t.h(), h);
+            assert_eq!(t.m(), m);
+            assert_eq!(t.s(), s);
         }
     }
 
